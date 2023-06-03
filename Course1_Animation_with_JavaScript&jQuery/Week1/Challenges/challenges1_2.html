@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenges1-2</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#" id="link1">link one</a></li>
+        <li><a href="#" id="link2">link two</a></li>
+        <li><a href="#" id="link3">link three</a></li>
+        <li><a href="#" id="link4">link four</a></li>
+        <li><a href="#" id="link5">link five</a></li>
+      </ul>
+    </nav>
+    <p>
+      Here is a paragraph with a
+      <a href="http://google.com">link to google</a> in it
+    </p>
+    <p id="link_paragraph">Click a link to change this paragraph</p>
+    <p id="paragraph">Here is a paragraph</p>
+    <div id="navPar">
+      <p id="paralink1">Looks like you clicked the first link in the list</p>
+      <p id="paralink2">Looks like you clicked the second link in the list</p>
+      <p id="paralink3">Looks like you clicked the third link in the list</p>
+      <p id="paralink4">Looks like you clicked the fourth link in the list</p>
+      <p id="paralink5">Looks like you clicked the fifth link in the list</p>
+    </div>
+
+    <p>Don't change this paragraph</p>
+
+    <div id="main">
+      <p>Change this paragraph.</p>
+      <p>Change this paragraph too.</p>
+      <p>And change this last paragraph</p>
+      <p>Here is paragraph one</p>
+      <p>Here is paragraph two</p>
+      <p>Here is paragraph three</p>
+      <p>Here is paragraph four</p>
+      <p>Here is paragraph five</p>
+      <p>Llamas and Chickens!</p>
+      <p>Here is paragraph six</p>
+      <p>Here is paragraph seven</p>
+      <p>Here is paragraph eight</p>
+      <p>Here is paragraph nine</p>
+      <p>Here is paragraph ten</p>
+      <p>Here is paragraph eleven</p>
+      <p>Here is paragraph twelve</p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+      const challenge1JS = () => {
+        document.querySelector("#paragraph").style.fontSize = "24px";
+      };
+      //challenge1JS();
+
+      const challenge2JQuery = () => {
+        $("#paragraph").css("font-size", "24px");
+      };
+      //challenge2JQuery()
+
+      const challenge3JS = () => {
+        const divP = document.querySelectorAll("#main p");
+        divP.forEach((i) => {
+          i.style.color = "red";
+          i.style.fontSize = "24px";
+        });
+      };
+      //challenge3JS()
+
+      const challenge4JQuery = () => {
+        $("#main p").css({ color: "red", "font-size": "24px" });
+        // $("#main p").css("color", "red").css("font-size", "24px")
+      };
+      //challenge4JQuery();
+
+      const challenge5JS = () => {
+        const lastP = document.querySelectorAll("#main p");
+        lastP[lastP.length - 1].style.color = "red";
+        lastP[lastP.length - 1].style.fontSize = "24px";
+
+        const lastPara = document.querySelector("#main p:last-of-type");
+        lastPara.style.fontSize = "36px";
+        lastPara.style.color = "grey";
+      };
+      //challenge5JS();
+
+      const challenge6JQuery = () => {
+        //$("#main p:last-of-type").css({"font-size": "36px", "color" : "green"})
+        $("#main p").last().css({ color: "blue", "font-size": "24px" });
+      };
+      //challenge6JQuery();
+
+      const challenge7JS = () => {
+        const divParas = document.querySelectorAll("#main p:nth-child(even)");
+        divParas.forEach((i) => (i.style.color = "red"));
+      };
+      //challenge7JS();
+
+      const challenge8JQuery = () => {
+        $("#main p").even().css("color", "red");
+      };
+      //challenge8JQuery()
+
+      const challenge9JS = () => {
+        const thePara = document.querySelectorAll("#main p");
+        thePara.forEach((i) => {
+          if (i.innerHTML === "Llamas and Chickens!") {
+            i.style.color = "red";
+          }
+        });
+      };
+
+      //challenge9JS()
+
+      const challenge10JQuery = () => {
+        $("#main p:contains('Llamas and Chickens!')").css("color", "red");
+      };
+      //challenge10JQuery()
+
+      const challenge11JS = () => {
+        const navLinks = document.querySelectorAll("nav a");
+        navLinks.forEach((i) => {
+          i.addEventListener("click", (event) => {
+            event.preventDefault();
+            alert("clicked");
+          });
+        });
+      };
+      //challenge11JS();
+
+      const challenge12JQuery = () => {
+        $("nav ul li a").click(() => {
+          alert("clicked!");
+        });
+      };
+      //challenge12JQuery();
+
+      const challenge13JS = () => {
+        const navLinks2 = document.querySelectorAll("nav a");
+        navLinks2.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            alert(link.innerHTML + " clicked");
+          });
+        });
+      };
+      //challenge13JS();
+
+      const challenge14JQuery = () => {
+        $("nav a").click(function () {
+          alert($(this).html());
+        });
+      };
+      //challenge14JQuery();
+
+      const challenge15JS = () => {
+        const navLinks3 = document.querySelectorAll("nav a");
+        navLinks3.forEach((link) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            link.style.color = "green";
+          });
+        });
+      };
+      //challenge15JS();
+
+      const challenge16JQuery = () => {
+        $("nav a").click(function () {
+          $(this).css("color", "green");
+        });
+      };
+      //challenge16JQuery();
+
+      const challenge17JS = () => {
+        const navLinks4 = document.querySelectorAll("nav a");
+        navLinks4.forEach((link) => {
+          link.addEventListener("click", () => {
+            document.querySelector(
+              "#link_paragraph"
+            ).innerHTML = `You clicked ${link.innerHTML}`;
+          });
+        });
+      };
+      //challenge17JS();
+
+      const challenge18JQuery = () => {
+        $("nav a").click(function () {
+          const thisLink = $(this).html();
+          $("#link_paragraph").html(`You clicked ${thisLink}`);
+        });
+      };
+      //challenge18JQuery();
+
+      const challenge19JS = () => {
+        const navLinks5 = document.querySelectorAll("nav a");
+        const navPars = document.querySelectorAll("#navPar p");
+
+        navLinks5.forEach((link) => {
+          link.addEventListener("click", function () {
+            const paraNumber = "#para" + link.id;
+
+            navPars.forEach((par) => {
+              par.style.color = "black";
+            });
+            const thisPar = document.querySelector(paraNumber);
+            thisPar.style.color = "red";
+          });
+        });
+      };
+      //challenge19JS();
+
+      challenge20JQuery = () => {
+        $("nav a").click(function () {
+          const thisParNum = "#para" + $(this).attr("id");
+          $("#navPar p").css("color", "green");
+          $(thisParNum).css("color", "red");
+        });
+      };
+      //challenge20JQuery();
+    </script>
+  </body>
+</html>
