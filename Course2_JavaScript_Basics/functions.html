@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Functions</title>
+  </head>
+
+  <body>
+    <h1>JavaScript Functions</h1>
+    <script>
+      function doStuff() {
+        const myString = "Here is a string of text";
+        const myUpperString = myString.toUpperCase();
+        console.log(myString);
+        console.log(myUpperString);
+      }
+
+      doStuff();
+
+      function userNumber() {
+        let number = prompt("Please enter a number");
+        if (number > 10) {
+          console.log("You entered a big number!");
+        } else if (number < 10) {
+          console.log("You entered a number smaller than 10");
+          for (let i = 0; i < 10; i++) {
+            if (i == number) {
+              console.log(`here is a ${i} <--- This is your number`);
+            } else {
+              console.log(`here is a ${i}`);
+            }
+          }
+        } else {
+          console.log("ERROR: You didn't enter a number!");
+        }
+      }
+
+      //   userNumber();
+
+      function upperMessage(message) {
+        let upperMessage = message.toUpperCase();
+        console.log(upperMessage);
+      }
+
+      upperMessage("here is a message");
+
+      function addNums(num1, num2) {
+        const sum = num1 + num2;
+        console.log(sum);
+      }
+
+      //   addNums(349, 546);
+
+      function returnSum(num1, num2) {
+        let sum = num1 + num2;
+        return sum;
+      }
+
+      console.log(returnSum(3, 5));
+
+      let foods = ["hamburgers", "chicken", "pizza", "cheese"];
+      function randomInt(min, max) {
+        /*    let numOfValues = max-min +1;
+        let randomNum = Math.random();
+        let randomVal = randomNum * numOfValues;
+        let roundedDownVal = Math.floor(randomVal);
+        let finalNum = min + roundedDownVal;
+        return finalNum;
+        */
+        // creating random numbers from min and max
+        return Math.floor((max - min + 1) * Math.random()) + min;
+      }
+
+      console.log(foods[randomInt(0, 3)]);
+
+      const greetings = function () {
+        console.log("Hello from the other side");
+      };
+
+      greetings();
+    </script>
+  </body>
+</html>

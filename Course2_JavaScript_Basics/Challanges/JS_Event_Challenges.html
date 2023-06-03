@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Event Challenges</title>
+  </head>
+  <body>
+    <h1>JavaScript Event Challenges</h1>
+    <p>Here is a paragraph of text</p>
+    <p>Here is second paragraph of text</p>
+
+    <p>Here is third paragraph of text</p>
+
+    <p>Here is fourth paragraph of text</p>
+
+    <div>
+      <p>The paragraph inside the DIV</p>
+    </div>
+
+    <button>Turn Green Dammit</button>
+
+    <button id="parButton">Add a paragraph</button>
+    <button id="delParButton">Remove a paragraph</button>
+
+    <script>
+      let texts = document.querySelectorAll("p");
+      let button = document.querySelector("button");
+      let parButton = document.querySelector("#parButton");
+      let parDiv = document.querySelector("div");
+      let delParButton = document.querySelector("#delParButton");
+
+      button.addEventListener("click", function () {
+        for (let i = 0; i < texts.length; i++) {
+          texts[i].style.color = "green";
+        }
+      });
+
+      parButton.addEventListener("click", function () {
+        const newPara = document.createElement("p");
+        newPara.innerText = "A new paragraph";
+        parDiv.appendChild(newPara);
+      });
+
+      delParButton.addEventListener("click", function () {
+        for (let i = 0; i < texts.length; i++) {
+          texts[i].remove();
+        }
+      });
+      // challenge 26
+      const newDiv = document.createElement("div");
+      document.body.append(newDiv);
+      newParButton = document.createElement("button");
+      document.body.append(newParButton);
+      newParButton.innerText = "Add New Paragraphs In Order";
+
+      delParButton = document.createElement("button");
+      document.body.append(delParButton);
+      delParButton.innerText = "Delete Paragraph";
+      let total = 0;
+
+      newParButton.addEventListener("click", function () {
+        const newParagraph = document.createElement("p");
+        total++;
+        newParagraph.innerText = `This is new paragraph ${total}`;
+        newDiv.appendChild(newParagraph);
+      });
+
+      delParButton.addEventListener("click", function () {
+        if (total > 1) {
+          newDiv.remove(newDiv.children[1]);
+        } else {
+          alert("Don't delete last paragraph");
+        }
+      });
+    </script>
+
+    <h2 id="challenge27">JavaScript Challenge:27</h2>
+    <form>
+      <label>Enter a Number<input type="text" id="numberInput" /></label>
+      <input type="submit" value="send number" id="submitButton" />
+    </form>
+    <script>
+      const formTag = document.querySelector("form");
+      const h2Tag = document.querySelector("h2");
+
+      formTag.addEventListener("submit", function (evt) {
+        evt.preventDefault();
+        const inputValue = parseInt(
+          document.querySelector("#numberInput").value
+        );
+
+        if (inputValue) {
+          console.log("Hello");
+          challenge27.style.fontSize = inputValue + "px";
+          challenge27.style.color = "red";
+        } else {
+          alert("Please enter a number!");
+        }
+      });
+    </script>
+  </body>
+</html>

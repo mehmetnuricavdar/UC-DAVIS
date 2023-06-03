@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Basic Challenges: Challenge 1</title>
+  </head>
+  <body>
+    <h1>JavaScript Basic Challenges: Challenge 1</h1>
+    <script>
+      console.log("Hello World");
+      const firstName = "Mehmet";
+      const lastName = "Cavdar";
+      const adjective = "tall";
+
+      console.log(firstName, lastName);
+      console.log(`${firstName} ${lastName} is ${adjective}`);
+
+      //   let name = prompt("What is your name? ", "Bob");
+      //   console.log(`Hello ${name} and welcome!`);
+      let number = prompt("Please enter a number");
+
+      if (number > 10) {
+        console.log("You entered a big number!");
+      } else if (number < 10) {
+        console.log("You entered a number smaller than 10");
+        for (let i = 0; i < 10; i++) {
+          if (i == number) {
+            console.log(`here is a ${i} <--- This is your number`);
+          } else {
+            console.log(`here is a ${i}`);
+          }
+        }
+      } else {
+        console.log("ERROR: You didn't enter a number!");
+      }
+
+      const primaryColors = ["red", "blue", "yellow"];
+      //   const secondaryColors = ['orange', 'green', 'purple'];
+      let userColor = prompt("Please enter a color");
+
+      for (color of primaryColors) {
+        if (userColor == color) {
+          console.log(`thank you! Your color is ${userColor.toUpperCase()}`);
+        } else if (userColor != color) {
+          console.log("Try again!");
+        }
+      }
+
+      let yourName = prompt("Provide your name", "");
+      let food = ["hamburgers", "chicken", "pizza", "cheese", "dessert"];
+
+      function hello(name) {
+        let text;
+
+        if (name == "" || name == null) {
+          text = "You didn't enter your name!";
+        } else {
+          text = `Hello ${name}, and welcome!`;
+        }
+        return text;
+      }
+
+      function randomInt(min, max) {
+        // creating random numbers from min and max
+        return Math.floor((max - min + 1) * Math.random()) + min;
+      }
+
+      function hospitality(name, gift) {
+        console.log(hello(name));
+        let randomGift = gift[randomInt(0, gift.length - 1)];
+        console.log(`${name}, would you like some ${randomGift}`);
+      }
+
+      hospitality(yourName, food);
+    </script>
+  </body>
+</html>
